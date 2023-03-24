@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+<style>
+    *{
+        margin: 0px;
+        outline :0px
+    }
+    .con{
+        position: relative;
+        width: 100%;
+        height: 80vh;
+    }
+    .con img{
+        width: 100%;
+        height: 80vh;
+        margin-top:10vh;
+        background-size: 100% 100%;
+    }
+    .text{
+        position: absolute;
+        color: rgb(255, 38, 0);
+        top: 20vh;
+        left: 20%;
+        font-size: 33px;
+    }
+    .arrow{
+        position: absolute;
+        font-size: 40px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        top:50vh;
+        width: 100%;
+        padding: 0px 10px;
+        box-sizing: border-box;
+        
+
+
+    }
+    .left:hover{
+        background-color: cornflowerblue;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+    .right:hover{
+        background-color: cornflowerblue;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+    .foot{
+        position: absolute;
+      display: flex;
+        width: 100%;
+      
+        font-size: 30px;
+       margin-left: 350px;
+       
+    }
+    .foot div{
+        padding-left: 10px;
+    }
+    .fa-circle{
+        color: orangered;
+    }
+
+</style>
+</head>
+<body>
+   
+<div class="con">
+    <img src="r1.jpg" id="simg">
+
+
+    <div class="text">
+        <h1 id="hd"> heading 1</h1>
+        <div id="bc"> content of heading 1</div>
+    </div>
+
+
+
+
+
+
+
+    <div class="arrow" >
+        <div class="left" onclick="fun1()">
+            <i class="fa-solid fa-less-than"></i>
+        </div>
+        <div class="right"onclick="fun2()">
+            <i class="fa-solid fa-greater-than"></i>
+        </div>
+    </div>
+</div>
+    <div class="foot">
+        <div  onclick="fun3(0)">
+            <i class="fa-solid fa-circle"></i>
+        </div>
+        <div  onclick="fun3(1)">
+            <i class="fa-regular fa-circle"></i>
+        </div>
+        <div  onclick="fun3(2)">
+            <i class="fa-regular fa-circle"></i>
+        </div>
+        <div  onclick="fun3(3)">
+            <i class="fa-regular fa-circle"></i>
+        </div>
+        <div  onclick="fun3(4)">
+            <i class="fa-regular fa-circle"></i>
+        </div>
+        <div  onclick="fun3(5)">
+            <i class="fa-regular fa-circle"></i>
+        </div>
+        <div  onclick="fun3(6)">
+            <i class="fa-regular fa-circle"></i>
+        </div>
+     
+        
+        
+
+    </div>
+
+
+    <script>
+        let i=0
+        let a=["r1.jpg","r2.jpg","r3.jpg","r4.jpg","r5.jpg","r6.jpg","r7.jpg"]
+        let data=[{heading :"headng1",cont:"cont of heading 1"},
+        {heading :"headng2",cont:"cont of heading 2"},
+        {heading :"headng3",cont:"cont of heading 3"},
+        {heading :"headng4",cont:"cont of heading 4"},
+        {heading :"headng5",cont:"cont of heading 5"},
+        {heading :"headng6",cont:"cont of heading 6"},
+        {heading :"headng7",cont:"cont of heading 7"}]
+
+        function fun2()
+        {
+           
+            let iref=document.getElementById("simg")
+            let hrf=document.getElementById("hd")
+            let brf=document.getElementById("bc")
+            let dref=document.getElementsByClassName("fa-circle")
+            let cl=dref[i].classList
+            cl.remove("fa-solid")
+            cl.add("fa-regular")
+            dref[i].classList=cl
+            i++
+            
+            if (i>=a.length)
+            {
+                i=0
+            }
+            iref.src=a[i]
+            hrf.innerHTML=data[i].heading
+            brf.innerHTML=data[i].cont
+            let cl1=dref[i].classList
+            cl1.remove("fa-regular")
+            cl1.add("fa-solid")
+            dref[i].classList=cl1
+        
+
+        }
+
+
+
+        
+         setInterval(fun2,4000)
+        function fun1()
+        {
+          
+            let iref=document.getElementById("simg")
+            let hrf=document.getElementById("hd")
+            let brf=document.getElementById("bc")
+            let dref=document.getElementsByClassName("fa-circle")
+            let cl=dref[i].classList
+            cl.remove("fa-solid")
+            cl.add("fa-regular")
+            dref[i].classList=cl
+            i--
+            
+            if (i<0)
+            {
+                i=a.length-1
+            }
+            iref.src=a[i]
+            hrf.innerHTML=data[i].heading
+            brf.innerHTML=data[i].cont
+            let cl1=dref[i].classList
+            cl1.remove("fa-regular")
+            cl1.add("fa-solid")
+            dref[i].classList=cl1
+            
+
+        }
+        function fun3(x)
+        {
+            let iref=document.getElementById("simg")
+            let hrf=document.getElementById("hd")
+            let brf=document.getElementById("bc")
+            let dref=document.getElementsByClassName("fa-circle")
+            let cl=dref[i].classList
+            cl.remove("fa-solid")
+            cl.add("fa-regular")
+            dref[i].classList=cl
+            i=x
+           
+            iref.src=a[i]
+            hrf.innerHTML=data[i].heading
+            brf.innerHTML=data[i].cont
+            let cl1=dref[i].classList
+         
+            cl1.remove("fa-regular")
+            cl1.add("fa-solid")
+            dref[i].classList=cl1
+
+        }
+
+    </script>
+</body>
+</html>
